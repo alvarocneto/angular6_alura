@@ -1,8 +1,8 @@
+import { debounceTime } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 import { Photo } from './../photo/photo.model';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subject } from 'rxjs';
-import {debounceTime} from 'rxjs/operators';
 
 @Component({
   selector: 'app-photo-list',
