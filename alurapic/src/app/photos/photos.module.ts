@@ -1,3 +1,4 @@
+import { FilterByDescriptionPipe } from './photo-list/filter-by-description.pipe';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -9,6 +10,12 @@ import { PhotosComponent } from './photo-list/photos/photos.component';
 
 @NgModule({
   imports: [CommonModule, HttpClientModule],
-  declarations: [PhotoComponent, PhotoListComponent, PhotoFormComponent, PhotosComponent]
+  declarations: [
+    PhotoComponent,
+    PhotoListComponent,
+    PhotoFormComponent,
+    PhotosComponent,
+    FilterByDescriptionPipe
+  ]
 })
 export class PhotosModule {}
