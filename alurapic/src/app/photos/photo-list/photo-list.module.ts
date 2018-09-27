@@ -1,3 +1,4 @@
+import { CardModule } from './../../shared/componets/card/card.module';
 import { PhotoModule } from './../photo/photo.module';
 import { NgModule } from '@angular/core';
 import { PhotoListComponent } from './photo-list.component';
@@ -13,6 +14,6 @@ import { CommonModule } from '@angular/common';
     LoadButtonComponent,
     FilterByDescriptionPipe
   ],
-  imports: [CommonModule, PhotoModule]
+  imports: [CommonModule, PhotoModule, CardModule]
 })
 export class PhotoListModule {}
