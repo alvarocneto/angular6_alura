@@ -5,8 +5,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { PhotoFormComponent } from './photos/photo-form/photo-form.component';
 import { PhotoListComponent } from './photos/photo-list/photo-list.component';
 import { PhotoListResolver } from './photos/photo-list/photo-list.resolver';
+import { SignInComponent } from './home/sign-in/sign-in.component';
 
 const routes: Routes = [
+  { path: '', component: SignInComponent },
   {
     path: 'user/:username',
     component: PhotoListComponent,
