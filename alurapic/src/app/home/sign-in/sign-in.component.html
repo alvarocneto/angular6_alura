@@ -8,12 +8,10 @@
       autofocus
       formControlName="userName"
     />
-    <small
+    <app-vmessage
       *ngIf="loginForm.get('userName').errors"
-      class="text-danger d-block mt-2"
-    >
-      User name is required
-    </small>
+      text="User name is required"
+    ></app-vmessage>
   </div>
 
   <div class="form-group">
@@ -23,12 +21,10 @@
       placeholder="password"
       formControlName="password"
     />
-    <small
+    <app-vmessage
       *ngIf="loginForm.get('password').errors"
-      class="text-danger d-block mt-2"
-    >
-      A password is required !</small
-    >
+      text="A password is required !"
+    ></app-vmessage>
   </div>
 
   <button

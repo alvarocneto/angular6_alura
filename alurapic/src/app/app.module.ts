@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ErrorsModule } from './errors/errors.module';
+import { VMessageModule } from './shared/componets/vmessage/vmessage.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,7 +15,8 @@ import { ErrorsModule } from './errors/errors.module';
     PhotosModule,
     AppRoutingModule,
     ErrorsModule,
-    HomeModule
+    HomeModule,
+    VMessageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
