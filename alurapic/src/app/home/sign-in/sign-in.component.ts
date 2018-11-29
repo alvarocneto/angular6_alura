@@ -1,6 +1,8 @@
-import { AuthService } from './../../core/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { AuthService } from './../../core/auth.service';
 
 @Component({
   templateUrl: './sign-in.component.html'
@@ -10,7 +12,8 @@ export class SignInComponent implements OnInit {
 
   constructor(
     private _formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -24,6 +27,15 @@ export class SignInComponent implements OnInit {
     const userName = this.loginForm.get('userName').value;
     const password = this.loginForm.get('password').value;
 
-    return this.authService.authenticate(userName, password).subscribe();
+    return this.authService.authenticate(userName, password).subscribe(
+      () => {
+        this.router.navigate(['user', userName]);
+      },
+      (err) => {
+        console.log(err);
+        this.loginForm.reset();
+        alert('Invalid username or password');
+      }
+    );
   }
 }
