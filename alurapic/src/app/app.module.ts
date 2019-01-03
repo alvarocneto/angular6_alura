@@ -1,11 +1,12 @@
-import { HomeModule } from './home/home.module';
-import { AppRoutingModule } from './app.routing.module';
-import { PhotosModule } from './photos/photos.module';
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app.routing.module';
+import { CoreModule } from './core/core.module';
 import { ErrorsModule } from './errors/errors.module';
+import { HomeModule } from './home/home.module';
+import { PhotosModule } from './photos/photos.module';
 import { VMessageModule } from './shared/componets/vmessage/vmessage.module';
 
 @NgModule({
@@ -16,9 +17,9 @@ import { VMessageModule } from './shared/componets/vmessage/vmessage.module';
     AppRoutingModule,
     ErrorsModule,
     HomeModule,
-    VMessageModule
+    VMessageModule,
+    CoreModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
