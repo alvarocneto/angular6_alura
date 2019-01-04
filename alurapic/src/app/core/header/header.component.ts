@@ -6,16 +6,7 @@ import { UserService } from '../user/user.service';
 
 @Component({
   selector: 'ap-header',
-  template: `
-    <header class="sticky-top">
-      <nav class="navbar navbar-light bg-white">
-        <a class="navbar-brand">ALURAPIC</a>
-        <div>
-          <i class="fa fa-user-circle"></i> <a class="ml-2">{{ user?.name }}</a>
-        </div>
-      </nav>
-    </header>
-  `
+  templateUrl: './header.component.html'
 })
 export class HeaderComponent implements OnInit {
   user$: Observable<User>;
