@@ -9,7 +9,7 @@
       autofocus
     />
     <app-vmessage
-      *ngIf="signupForm.get('email').errors?.required"
+      *ngIf="!!signupForm.get('email').errors?.required"
       text="Email is required"
     ></app-vmessage>
   </div>
@@ -31,8 +31,12 @@
       class="form-control"
     />
     <app-vmessage
-      *ngIf="signupForm.get('userName').errors"
+      *ngIf="!!signupForm.get('userName').errors?.required"
       text="userName is required"
+    ></app-vmessage>
+    <app-vmessage
+      *ngIf="!!signupForm.get('userName').errors?.lowerCase"
+      text="userName is wrong"
     ></app-vmessage>
   </div>
   <div class="form-group">

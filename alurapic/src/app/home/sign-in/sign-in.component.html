@@ -10,7 +10,7 @@
       #userNameInput
     />
     <app-vmessage
-      *ngIf="loginForm.get('userName').errors"
+      *ngIf="!!loginForm.get('userName').errors?.required"
       text="User name is required"
     ></app-vmessage>
   </div>
