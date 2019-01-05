@@ -38,6 +38,11 @@
       *ngIf="!!signupForm.get('userName').errors?.lowerCase"
       text="userName is wrong"
     ></app-vmessage>
+    <app-vmessage
+      *ngIf="!!signupForm.get('userName').errors?.userNameTaken"
+      text="userName is already taken"
+    ></app-vmessage>
+    <small *ngIf="signupForm.get('userName').valid">User is Valid</small>
   </div>
   <div class="form-group">
     <input
@@ -51,7 +56,12 @@
       text="password is required"
     ></app-vmessage>
   </div>
-  <button class="btn btn-primary btn-block">Register</button>
+  <button
+    [disabled]="signupForm.invalid || signupForm.pending"
+    class="btn btn-primary btn-block"
+  >
+    Register
+  </button>
 
   <p>Already a user? <a [routerLink]="['']"> Sign In!</a></p>
 </form>
