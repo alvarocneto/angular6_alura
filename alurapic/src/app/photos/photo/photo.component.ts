@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+const CLOUD = 'http://localhost:3000/imgs/';
 
 @Component({
   selector: 'app-photo',
@@ -6,10 +8,22 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./photo.component.css']
 })
 export class PhotoComponent implements OnInit {
+  private _url = '';
+
   @Input()
   description = '';
   @Input()
-  url = '';
+  set url(url: string) {
+    if (url.startsWith('data')) {
+      this._url = url;
+    } else {
+      this._url = CLOUD + url;
+    }
+  }
+
+  get url() {
+    return this._url;
+  }
 
   ngOnInit() {}
 }
