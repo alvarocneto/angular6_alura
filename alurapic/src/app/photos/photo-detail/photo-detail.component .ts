@@ -10,6 +10,7 @@ import { Photo } from './../photo/photo.model';
   styleUrls: ['./photo-detail.css']
 })
 export class PhotoDetailComponent implements OnInit {
+  photoId: number;
   photo$: Observable<Photo>;
 
   constructor(
@@ -18,8 +19,7 @@ export class PhotoDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.photo$ = this.photoService.findById(
-      this.route.snapshot.params.photoId
-    );
+    this.photoId = this.route.snapshot.params.photoId;
+    this.photo$ = this.photoService.findById(this.photoId);
   }
 }
