@@ -1,3 +1,4 @@
+import { PhotoOwnerOnlyDirective } from './photo-owned-only/photo-owned-only.directive';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -10,7 +11,11 @@ import { PhotoCommentsComponent } from './photo-comments/photo-comments.componen
 import { PhotoDetailComponent } from './photo-detail.component ';
 
 @NgModule({
-  declarations: [PhotoDetailComponent, PhotoCommentsComponent],
+  declarations: [
+    PhotoDetailComponent,
+    PhotoCommentsComponent,
+    PhotoOwnerOnlyDirective
+  ],
   imports: [
     CommonModule,
     HttpClientModule,
