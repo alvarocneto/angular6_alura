@@ -23,18 +23,33 @@ const routes: Routes = [
     component: PhotoListComponent,
     resolve: {
       photos: PhotoListResolver
+    },
+    data: {
+      title: 'TimeLine'
     }
   },
   {
     path: 'p/add',
     component: PhotoFormComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    data: {
+      title: 'Upload'
+    }
   },
   {
     path: 'p/:photoId',
-    component: PhotoDetailComponent
+    component: PhotoDetailComponent,
+    data: {
+      title: 'Photo Detail'
+    }
   },
-  { path: 'not-found', component: NotFoundComponent },
+  {
+    path: 'not-found',
+    component: NotFoundComponent,
+    data: {
+      title: 'Not Found'
+    }
+  },
   { path: '**', redirectTo: 'not-found' }
 ];
 
