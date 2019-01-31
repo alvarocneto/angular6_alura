@@ -9,9 +9,17 @@ import { MenuModule } from './../shared/componets/menu/menu.module';
 import { RequestInterceptor } from './auth/request.interceptor';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import { ShowIfLoggedModule } from '../shared/directives/show-if-logged/show-if-logged.module';
 
 @NgModule({
-  imports: [CommonModule, RouterModule, AlertModule, LoadingModule, MenuModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    AlertModule,
+    LoadingModule,
+    MenuModule,
+    ShowIfLoggedModule
+  ],
   declarations: [HeaderComponent, FooterComponent],
   exports: [HeaderComponent, FooterComponent],
   providers: [
