@@ -1,8 +1,8 @@
-import { debounceTime } from 'rxjs/operators';
-import { Photo } from './../photo/photo.model';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
 import { PhotoService } from '../photo/photo.service';
+import { Photo } from './../photo/photo.model';
 
 @Component({
   selector: 'app-photo-list',
@@ -23,7 +23,7 @@ export class PhotoListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(param => {
+    this.activatedRoute.params.subscribe((param) => {
       this.username = param.userName;
       this.photos = this.activatedRoute.snapshot.data['photos'];
     });
@@ -32,7 +32,7 @@ export class PhotoListComponent implements OnInit {
   load() {
     this.photoService
       .listFromUserPaginated(this.username, ++this.currentPage)
-      .subscribe(photos => {
+      .subscribe((photos) => {
         this.filter = '';
         this.photos = this.photos.concat(photos);
         if (!photos.length) {
