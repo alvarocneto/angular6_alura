@@ -20,7 +20,7 @@ export class PhotoService {
 
   listFromUserPaginated(username: string, page: number): Observable<Photo[]> {
     const params = new HttpParams().append('page', page.toString());
-    return this.http.get<Photo[]>(`${API}/${username}/photos`, { params });
+    return this.http.get<Photo[]>(`${API}/${username}/photosx`, { params });
   }
 
   upload(description: string, allowComments: boolean, file: File) {
@@ -53,9 +53,9 @@ export class PhotoService {
   like(photoId: number) {
     return this.http
       .post(`${API}/photos/${photoId}/like`, {}, { observe: 'response' })
-      .pipe(map((res) => true))
+      .pipe(map(res => true))
       .pipe(
-        catchError((err) => {
+        catchError(err => {
           return err.status == '304' ? of(false) : throwError(err);
         })
       );
