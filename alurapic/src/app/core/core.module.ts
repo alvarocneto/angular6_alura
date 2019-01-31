@@ -5,12 +5,13 @@ import { RouterModule } from '@angular/router';
 
 import { LoadingModule } from '../shared/componets/loading/loading.module';
 import { AlertModule } from './../shared/componets/alert/alert.module';
+import { MenuModule } from './../shared/componets/menu/menu.module';
 import { RequestInterceptor } from './auth/request.interceptor';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 
 @NgModule({
-  imports: [CommonModule, RouterModule, AlertModule, LoadingModule],
+  imports: [CommonModule, RouterModule, AlertModule, LoadingModule, MenuModule],
   declarations: [HeaderComponent, FooterComponent],
   exports: [HeaderComponent, FooterComponent],
   providers: [
