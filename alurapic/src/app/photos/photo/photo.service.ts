@@ -20,7 +20,7 @@ export class PhotoService {
 
   listFromUserPaginated(username: string, page: number): Observable<Photo[]> {
     const params = new HttpParams().append('page', page.toString());
-    return this.http.get<Photo[]>(`${API}/${username}/photosx`, { params });
+    return this.http.get<Photo[]>(`${API}/${username}/photos`, { params });
   }
 
   upload(description: string, allowComments: boolean, file: File) {
