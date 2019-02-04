@@ -1,3 +1,4 @@
+import { userNamePasswordValidator } from './username-password.validator';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -25,27 +26,40 @@ export class SignUpComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.signupForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      fullName: [
-        '',
-        [Validators.required, Validators.minLength(2), Validators.maxLength(40)]
-      ],
-      userName: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(2),
-          Validators.maxLength(30),
-          lowerCaseValidator
+    this.signupForm = this.formBuilder.group(
+      {
+        email: ['', [Validators.required, Validators.email]],
+        fullName: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(2),
+            Validators.maxLength(40)
+          ]
         ],
-        [this.userNotTakenValidatorService.checkUserNameTaken()]
-      ],
-      password: [
-        '',
-        [Validators.required, Validators.minLength(8), Validators.maxLength(14)]
-      ]
-    });
+        userName: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(2),
+            Validators.maxLength(30),
+            lowerCaseValidator
+          ],
+          [this.userNotTakenValidatorService.checkUserNameTaken()]
+        ],
+        password: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(8),
+            Validators.maxLength(14)
+          ]
+        ]
+      },
+      {
+        validator: [userNamePasswordValidator]
+      }
+    );
 
     this.platformDetector.isPlatformBrowser() &&
       this.inputEmail.nativeElement.focus();

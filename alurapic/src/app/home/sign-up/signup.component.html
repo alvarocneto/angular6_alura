@@ -64,6 +64,10 @@
       *ngIf="signupForm.get('password').errors && form.submitted"
       text="password is required"
     ></app-vmessage>
+    <app-vmessage
+      *ngIf="!!signupForm.errors?.userNamePassword"
+      text="password cannot be equal to username"
+    ></app-vmessage>
   </div>
   <button class="btn btn-primary btn-block">
     Register
