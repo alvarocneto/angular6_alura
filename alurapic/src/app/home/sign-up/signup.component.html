@@ -15,7 +15,10 @@
       autofocus
     />
     <app-vmessage
-      *ngIf="!!signupForm.get('email').errors?.required && form.submitted"
+      *ngIf="
+        !!signupForm.get('email').errors?.required &&
+        (form.submitted || signupForm.get('email').touched)
+      "
       text="Email is required"
     ></app-vmessage>
   </div>
